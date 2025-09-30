@@ -1,0 +1,45 @@
+<section
+  class="relative h-screen w-[100%] flex items-center justify-center text-center overflow-hidden"
+>
+  <!-- Video de fondo -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="./public/medias/hero.mp4" type="video/mp4" />
+    Tu navegador no soporta video en HTML5.
+  </video>
+
+  <!-- Overlay sutil -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Contenido del Hero -->
+  <div class="relative z-10 px-6 max-w-3xl">
+    <h2
+      class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-xl leading-tight"
+    >
+      Bienvenida Damaris
+    </h2>
+    <p class="mt-6 text-lg sm:text-xl text-gray-200 drop-shadow-md">
+      Un viaje lleno de amor, momentos inolvidables y recuerdos que guardaremos
+      para siempre.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a
+        href="/historia"
+        class="px-6 py-3 bg-pink-500 hover:bg-pink-400 text-white font-semibold rounded-full shadow-lg transition"
+      >
+        Te Amo Damaris
+      </a>
+      <!-- <a
+        href="#historia"
+        class="px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-full shadow-lg transition"
+      >
+        Nuestra Historia
+      </a> -->
+    </div>
+  </div>
+</section>

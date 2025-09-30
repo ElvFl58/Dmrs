@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Mensaje que Fluye</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .petalo {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    color: #d6336c;
+    user-select: none;
+    animation: float 10s linear infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  .mensaje-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #d6336c;
+    font-size: 1.2em;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  .mensaje-popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .close-btn {
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #d6336c;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="petalos-container"></div>
+
+<div id="popup" class="mensaje-popup">
+  <div id="mensaje-texto"></div>
+  <button class="close-btn" onclick="cerrarMensaje()">Cerrar</button>
+</div>
+
+<script>
+  const mensajes = [
+    "Te pienso cada instante 💖",
+    "Eres mi mundo favorito 🌎",
+    "Cada momento contigo es mágico ✨",
+    "Siempre encuentro alegría en tu sonrisa 😍",
+    "Eres la razón de mis suspiros ❤️"
+  ];
+
+  const container = document.getElementById('petalos-container');
+
+  // Crear pétalos flotantes
+  for(let i=0; i<15; i++){
+    const petalo = document.createElement('div');
+    petalo.classList.add('petalo');
+    petalo.style.left = Math.random() * window.innerWidth + "px";
+    petalo.style.animationDuration = (5 + Math.random() * 10) + "s";
+    petalo.style.fontSize = (14 + Math.random() * 12) + "px";
+    petalo.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+    
+    petalo.addEventListener('click', () => {
+      mostrarMensaje(petalo.textContent);
+    });
+
+    container.appendChild(petalo);
+  }
+
+  function mostrarMensaje(texto){
+    const popup = document.getElementById('popup');
+    document.getElementById('mensaje-texto').textContent = texto;
+    popup.classList.add('show');
+  }
+
+  function cerrarMensaje(){
+    document.getElementById('popup').classList.remove('show');
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- ```html
+<style>
+  body {
+    /* Cursor corazón fijo */
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💖</text></svg>") 16 16, auto;
+  }
+
+  .heart-trail {
+    position: fixed;
+    pointer-events: none;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    to   { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+  }
+</style>
+
+<script type="text/javascript">
+  document.addEventListener("mousemove", (e) => {
+    const heart = document.createElement("span");
+    heart.className = "heart-trail";
+    heart.textContent = ["💖","💕","💘","💞"][Math.floor(Math.random() * 4)];
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 800);
+  });
+</script>
+``` -->

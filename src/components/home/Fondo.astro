@@ -1,0 +1,78 @@
+<section class="relative w-full h-screen overflow-hidden">
+  <!-- Video de fondo -->
+  <video
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="/medias/fondo/04.mp4" type="video/mp4" />
+    Tu navegador no soporta la etiqueta de video.
+  </video>
+
+  <!-- Lluvia de mensajes -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+    <span class="message animate-message1">💖 Te amo Damaris</span>
+    <span class="message animate-message2">❤️ Siempre tú</span>
+    <span class="message animate-message3">💗 Eres mi vida</span>
+    <span class="message animate-message4">💕 Contigo todo</span>
+    <span class="message animate-message4">Damaris ❤️</span>
+    <span class="message animate-message4">Damaris ❤️</span>
+    <span class="message animate-message4">Damaris</span>
+    <span class="message animate-message5">💞 Mi corazón</span>
+    <span class="message animate-message6">💖 Juntos por siempre</span>
+  </div>
+
+  <style>
+    /* Estilo mensajes */
+    .message {
+      position: absolute;
+      font-size: 1.5rem;
+      color: #ff69b4;
+      font-weight: bold;
+      white-space: nowrap;
+      opacity: 0.8;
+    }
+
+    /* Animaciones de caída */
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) translateX(20px) rotate(360deg);
+        opacity: 0.8;
+      }
+    }
+
+    .animate-message1 {
+      left: 10%;
+      animation: fall 8s linear infinite;
+    }
+    .animate-message2 {
+      left: 25%;
+      animation: fall 9s linear infinite 1s;
+    }
+    .animate-message3 {
+      left: 40%;
+      animation: fall 7s linear infinite 0.5s;
+    }
+    .animate-message4 {
+      left: 55%;
+      animation: fall 10s linear infinite 1.2s;
+    }
+    .animate-message5 {
+      left: 70%;
+      animation: fall 8.5s linear infinite 0.7s;
+    }
+    .animate-message6 {
+      left: 85%;
+      animation: fall 9.5s linear infinite 0.3s;
+    }
+  </style>
+</section>

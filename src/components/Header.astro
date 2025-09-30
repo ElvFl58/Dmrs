@@ -1,0 +1,79 @@
+---
+// Script de Astro (se ejecuta en el servidor)
+
+// Definición de enlaces
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/galeria", label: "Galería" },
+];
+---
+
+<header class="relative w-full overflow-hidden bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-600 shadow-lg animate-gradient-x z-50">
+
+  <!-- Contenedor principal del Navbar -->
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 relative z-20">
+    
+    <!-- Logo / título -->
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-pink-200 flex items-center justify-center shadow-[0_0_30px_rgba(255,192,203,0.9)] border-2 border-white animate-pulse text-lg sm:text-2xl">
+        💕
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold text-white drop-shadow-md tracking-wider">
+        Damaris
+      </h1>
+    </div>
+
+    <!-- Links (siempre visibles) -->
+    <nav class="flex gap-10 text-white font-medium">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="relative group transition text-lg font-serif hover:text-pink-100"
+        >
+          {link.label}
+          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-pink-200 group-hover:w-full transition-all duration-500"></span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Corazones flotando -->
+  <div class="absolute inset-0 pointer-events-none z-0">
+    {Array.from({ length: 12 }).map((_, i) => (
+      <span
+        class="absolute text-white text-xl opacity-60 animate-float"
+        style={`
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          animation-duration: ${6 + Math.random() * 6}s;
+          animation-delay: ${Math.random() * 5}s;
+        `}
+      >
+        {["💖", "💕", "💘", "💞"][i % 4]}
+      </span>
+    ))}
+  </div>
+</header>
+
+<style>
+/* Animación de corazones flotando */
+@keyframes float {
+  0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+.animate-float {
+  animation: float linear infinite;
+}
+
+/* Animación de gradiente de fondo */
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 12s ease infinite;
+}
+</style>

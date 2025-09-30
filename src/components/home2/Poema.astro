@@ -1,0 +1,83 @@
+<section class="relative bg-gradient-to-b from-pink-200 via-pink-100 to-pink-50 py-20 px-4 min-h-screen flex justify-center items-center overflow-hidden">
+  
+    <!-- Corazones que caen -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none overflow-hidden">
+      <span class="heart-fall animate-fall1">❤️</span>
+      <span class="heart-fall animate-fall2">💖</span>
+      <span class="heart-fall animate-fall3">💗</span>
+      <span class="heart-fall animate-fall4">💕</span>
+      <span class="heart-fall animate-fall5">❤️</span>
+    </div>
+  
+    <!-- Partículas de luz -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none">
+      <span class="particle animate-particle1">✨</span>
+      <span class="particle animate-particle2">✨</span>
+      <span class="particle animate-particle3">✨</span>
+      <span class="particle animate-particle4">✨</span>
+      <span class="particle animate-particle5">✨</span>
+    </div>
+  
+    <!-- Contenido principal -->
+    <div class="relative max-w-lg text-center bg-white bg-opacity-80 backdrop-blur-md shadow-2xl rounded-3xl p-10">
+      <h2 class="text-5xl font-extrabold text-pink-600 mb-8 animate-pulse">Un Poema Para Ti</h2>
+      <p class="text-gray-800 text-lg leading-relaxed italic mb-6">
+        Tus ojos son estrellas que brillan sin cesar,<br>
+        tu sonrisa es la luz que me hace soñar.<br>
+        Cada instante contigo es un dulce suspirar,<br>
+        en tu abrazo encuentro paz y bienestar.<br><br>
+        
+        Tus palabras son música que me hace volar,<br>
+        tu risa es el canto que quiero escuchar.<br>
+        Eres el sueño que nunca quiero dejar,<br>
+        mi amor por ti jamás podrá acabar.
+      </p>
+      <span class="text-pink-400 text-xl font-semibold animate-pulse">💖 Con todo mi amor 💖</span>
+    </div>
+  
+    <style>
+      /* Corazones que caen */
+      .heart-fall {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.8;
+        top: -5%;
+      }
+      .animate-fall1 { left: 10%; animation: fall 6s linear infinite; }
+      .animate-fall2 { left: 25%; animation: fall 7s linear infinite 1s; }
+      .animate-fall3 { left: 50%; animation: fall 5s linear infinite 0.5s; }
+      .animate-fall4 { left: 70%; animation: fall 8s linear infinite 1.2s; }
+      .animate-fall5 { left: 85%; animation: fall 6.5s linear infinite 0.7s; }
+  
+      @keyframes fall {
+        0% { transform: translateY(-50px) rotate(0deg); opacity: 0.8; }
+        50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0.8; }
+      }
+  
+      /* Partículas de luz */
+      .particle {
+        position: absolute;
+        font-size: 1rem;
+        opacity: 0.6;
+      }
+      .animate-particle1 { left: 15%; animation: sparkle 5s ease-in-out infinite; }
+      .animate-particle2 { left: 40%; animation: sparkle 6s ease-in-out infinite 1s; }
+      .animate-particle3 { left: 60%; animation: sparkle 4s ease-in-out infinite 0.5s; }
+      .animate-particle4 { left: 75%; animation: sparkle 5s ease-in-out infinite 1.2s; }
+      .animate-particle5 { left: 90%; animation: sparkle 7s ease-in-out infinite 0.8s; }
+  
+      @keyframes sparkle {
+        0%,100% { transform: translateY(0) scale(1); opacity: 0.6; }
+        50% { transform: translateY(-20px) scale(1.3); opacity: 1; }
+      }
+  
+      /* Pulsar título y mensaje final */
+      @keyframes pulse {
+        0%,100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      .animate-pulse { animation: pulse 2s infinite; }
+    </style>
+  </section>
+  

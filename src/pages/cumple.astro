@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Cumple">
+  <section
+    class="relative min-h-screen bg-gradient-to-b from-black via-pink-900/80 to-black flex flex-col items-center justify-center text-center px-4 py-12 overflow-hidden"
+  >
+    <!-- Corazones flotantes -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      {
+        Array.from({ length: 25 }).map((_, i) => (
+          <span
+            key={i}
+            class="absolute text-pink-400 animate-heart-float"
+            style={{
+              fontSize: `${1.5 + Math.random() * 2}rem`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDuration: `${4 + Math.random() * 6}s`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          >
+            ❤️
+          </span>
+        ))
+      }
+    </div>
+
+    <h1
+      class="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-pink-300 drop-shadow-xl mb-6 z-10 animate-pulse-soft tracking-wider"
+    >
+      🎂 No sé cuándo es tu cumpleaños...
+    </h1>
+
+    <p
+      class="relative text-base sm:text-lg md:text-xl lg:text-2xl text-pink-200/90 max-w-3xl leading-relaxed mb-8 z-10 animate-fade-in px-2 sm:px-4"
+    >
+      Dímelo en los mensajes 💌 para que pueda prepararte algo especial y llenar
+      tu día de sorpresas y amor 🌹✨. Cada momento contigo es un recuerdo que
+      ilumina mi mundo.
+    </p>
+
+    <style>
+      /* Corazones flotantes */
+      @keyframes heart-float {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-300px) scale(1.2);
+          opacity: 0;
+        }
+      }
+      .animate-heart-float {
+        animation-name: heart-float;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      /* Animación de título */
+      @keyframes pulse-soft {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+      .animate-pulse-soft {
+        animation: pulse-soft 2s infinite ease-in-out;
+      }
+
+      /* Fade-in texto */
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fade-in 2s ease forwards;
+      }
+
+      /* Responsivo */
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+      @media (min-width: 641px) and (max-width: 1024px) {
+        h1 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 1.25rem;
+        }
+      }
+      @media (min-width: 1025px) {
+        h1 {
+          font-size: 5rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </section>
+</Layout>

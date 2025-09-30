@@ -1,0 +1,79 @@
+---
+const skills = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />`,
+    title: "Arquitecta de Sueños",
+    desc: "Ella dibuja estructuras de datos y sistemas como quien dibuja constelaciones, conectando ideas con la magia de su ingenio. 💖",
+    href: "https://edutin.com/",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v12H3V5zM1 17h22v2H1v-2z" />`,
+    title: "Encantadora del Código",
+    desc: "Cada línea que escribe es un hechizo que transforma simples instrucciones en mundos llenos de vida y creatividad. ✨",
+    href: "https://cursa.app/cursos-online-tecnologia-de-la-informacion-gratis",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 2h6v4H9V2zm0 16h6v4H9v-4zM2 9h4v6H2V9zm16 0h4v6h-4V9z"/>
+`,
+    title: "Guardián de Historias",
+    desc: "Protege y organiza la información con cuidado y amor, como si cada dato fuera un recuerdo precioso que atesora en su corazón. 🌹",
+    href: "https://alison.com/es/cursos/it",
+  },
+];
+---
+
+<section
+  id="skills"
+  class="relative bg-gradient-to-b from-black via-gray-900 to-pink-800/40 py-20 px-6 sm:px-12 text-center"
+>
+  <div class="max-w-5xl mx-auto">
+    <!-- Título -->
+    <h2
+      class="text-3xl sm:text-5xl font-extrabold text-white mb-6 drop-shadow-xl"
+    >
+      Conoce mi mundo
+    </h2>
+    <p class="text-gray-200 text-lg sm:text-xl mb-16 italic">
+      “Cada línea que domina, cada sistema que construye, es un pedacito de su
+      corazón que te ofrece 💕. Sus manos y su mente entrelazan ideas y
+      sueños, transformando la lógica en magia, los datos en historias, y cada
+      proyecto en un reflejo de su pasión y cariño por ti. 🌹✨”
+    </p>
+
+    <!-- Cards con map -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        skills.map((skill) => (
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:scale-105 hover:bg-pink-400/20 transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-center mb-4">
+                <svg
+                  class="w-12 h-12 text-pink-300"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <g set:html={skill.icon} />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-3">
+                {skill.title}
+              </h3>
+              <p class="text-gray-200">{skill.desc}</p>
+            </div>
+            <div class="mt-6">
+              <a
+                target="_blank"
+                href={skill.href}
+                class="inline-block px-5 py-2 bg-pink-500 hover:bg-pink-400 text-white font-semibold rounded-full shadow-md transition"
+              >
+                Conoce mi mundo
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
